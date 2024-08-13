@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.15...3.27)
+set(Torch_DIR /usr/lib/python3/dist-packages/torch/share/cmake/Torch)
 project(${SKBUILD_PROJECT_NAME} VERSION ${SKBUILD_PROJECT_VERSION} LANGUAGES CXX)
 
 # General settings
@@ -9,7 +10,7 @@ include(CheckLanguage)
 check_language(CUDA)
 
 if(CMAKE_CUDA_COMPILER)
-  set(CMAKE_CUDA_ARCHITECTURES "89")
+  set(CMAKE_CUDA_ARCHITECTURES "native")
   enable_language(CUDA)
 
   add_definitions(-DWITH_CUDA)
